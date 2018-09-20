@@ -50,9 +50,17 @@ The variable `vec_random` has class `r class(variable_df$vec_random)` and the va
 The variable `vec_char` has class  `r class(variable_df$vec_char)` and the variable `vec_factor` has class  `r class(variable_df$vec_factor)`. `mean` does not work on character or factor vectors - there are no numerical values to serve as input.
 
 ```{r as.numeric function}
-## Coercing our variables into numeric.
+## Coercing our variables into numeric. ???Not sure how to hide the output
 as.numeric(variable_df$vec_logical)
 as.numeric(variable_df$vec_char)
 as.numeric(variable_df$vec_factor)
+```
+
+The logical and factor variable can be converted to numeric. But character variable can't be converted to numeric.
+
+```{r as.numeric conversions}
+## convert character variable from character to factor to numeric; convert factor variable from factor to character to numeric. What happens?
+
+
 ```
 ### Problem 2
