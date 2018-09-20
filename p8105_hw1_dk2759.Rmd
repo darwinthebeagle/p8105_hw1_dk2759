@@ -5,30 +5,6 @@ author: "Darwin Keung"
 date: 2018-09-19
 ---
 
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
-```
-
-## R Markdown
-
-This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
-
-When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
-
-```{r cars}
-summary(cars)
-```
-
-## Including Plots
-
-You can also embed plots, for example:
-
-```{r pressure, echo=FALSE}
-plot(pressure)
-```
-
-Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
-
 ## Homework 1
 
 ### Problem 1
@@ -41,20 +17,38 @@ The chunk(s) below creates a data frame comprised of:
 * A (length-10) character vector
 * A (length-10) factor vector
 
-```{r Setup, include=FALSE}
+```{r setup, include=FALSE}
 library(tidyverse)
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
 
-```{r problem_1}
+```{r problem_1_data frame}
 variable_df = tibble(
   vec_random = runif(10 , min = 0, max = 5),
+## `runif` generates random uniformly distributed numbers, n is the number of observations. Min, Max are the lower and upper limits of the distribution.
   vec_logical = vec_random > 2,
-  vec_char = c("helloworld"),
-  vec_factor = factor(c("1","2","3","4","5","6","7", "8","9", "10"))
+  vec_char = c("A", "B", "C", "D", "E", "F", "G", "H", "I", "J"),
+  vec_factor = factor(c("h", "e", "l", "l", "o", "w", "o", "r", "l", "d"))
 )
 variable_df
+
+## Taking the means of each variable in dataframe
+mean(variable_df$vec_random)
+
+mean(variable_df$vec_logical)
+
+mean(variable_df$vec_char)
+
+mean(variable_df$vec_factor)
 ```
-The code above contains `runif(n, min = 0, max = 1)`. `runif` generates random uniformly distributed numbers, n is the number of observations. Min, Max are the lower and upper limits of the distribution. 
-The variable `vec_random` has class `r class(variable_df$vec_random)`, and the variable `vec_factor` has class `r class(variable_df$vec_factor)`.
+
+
+The variable `vec_random` has class `r class(variable_df$vec_random)` and the variable `vec_logical` has class `r class(variable_df$vec_logical)`. `mean` works on numeric and logical vectors since there are quantities to use for the mean.
+
+The variable `vec_char` has class  `r class(variable_df$vec_char)` and
+the variable `vec_factor` has class  `r class(variable_df$vec_factor)`. `mean` does not work on character or factor vectors - there are no numerical values to serve as input.
+
+```{r as.numeric function}
+
+### Problem 2
