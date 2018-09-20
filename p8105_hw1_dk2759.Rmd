@@ -47,15 +47,14 @@ knitr::opts_chunk$set(echo = TRUE)
 ```
 
 
-```{r problem_1_random_sampling}
-random_df = tibble(
+```{r problem_1}
+variable_df = tibble(
   vec_random = runif(10 , min = 0, max = 5),
   vec_logical = vec_random > 2,
   vec_char = c("helloworld"),
   vec_factor = factor(c("1","2","3","4","5","6","7", "8","9", "10"))
 )
-random_df
+variable_df
 ```
-The code above contains `runif(n, min = 0, max = 1)`. `runif` generates random uniformly distributed numbers, n is the number of observations. Min, Max are the lower and upper limits of the distribution.
-
-
+The code above contains `runif(n, min = 0, max = 1)`. `runif` generates random uniformly distributed numbers, n is the number of observations. Min, Max are the lower and upper limits of the distribution. 
+The variable `vec_random` has class `r class(variable_df$vec_random)`, and the variable `vec_factor` has class `r class(variable_df$vec_factor)`.
