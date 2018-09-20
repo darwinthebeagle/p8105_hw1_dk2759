@@ -19,9 +19,13 @@ knitr::opts_chunk$set(echo = TRUE)
 This problem focuses on variable types and coercion.
 
 The chunks below creates a data frame comprised of:
+
 * A random sample of size 10 from a uniform[0, 5] distribution
+
 * A logical vector indicating whether elements of the sample are greater than 2
+
 * A (length-10) character vector
+
 * A (length-10) factor vector
 
 ```{r problem_1_data frame}
@@ -37,25 +41,18 @@ variable_df
 
 ## Taking the means of each variable in dataframe
 mean(variable_df$vec_random)
-
 mean(variable_df$vec_logical)
-
 mean(variable_df$vec_char)
-
 mean(variable_df$vec_factor)
 ```
-
-
 The variable `vec_random` has class `r class(variable_df$vec_random)` and the variable `vec_logical` has class `r class(variable_df$vec_logical)`. `mean` works on numeric and logical vectors since there are quantities to use for the mean.
 
-The variable `vec_char` has class  `r class(variable_df$vec_char)` and
-the variable `vec_factor` has class  `r class(variable_df$vec_factor)`. `mean` does not work on character or factor vectors - there are no numerical values to serve as input.
+The variable `vec_char` has class  `r class(variable_df$vec_char)` and the variable `vec_factor` has class  `r class(variable_df$vec_factor)`. `mean` does not work on character or factor vectors - there are no numerical values to serve as input.
 
 ```{r as.numeric function}
 ## Coercing our variables into numeric.
 as.numeric(variable_df$vec_logical)
 as.numeric(variable_df$vec_char)
 as.numeric(variable_df$vec_factor)
-
 ```
 ### Problem 2
