@@ -9,24 +9,26 @@ date: 2018-09-19
 
 ### Problem 1
 
+
+```{r setup, include=FALSE}
+rm(list = ls())
+library(tidyverse)
+knitr::opts_chunk$set(echo = TRUE)
+```
+
 This problem focuses on variable types and coercion.
 
-The chunk(s) below creates a data frame comprised of:
+The chunks below creates a data frame comprised of:
 * A random sample of size 10 from a uniform[0, 5] distribution
 * A logical vector indicating whether elements of the sample are greater than 2
 * A (length-10) character vector
 * A (length-10) factor vector
 
-```{r setup, include=FALSE}
-library(tidyverse)
-knitr::opts_chunk$set(echo = TRUE)
-```
-
-
 ```{r problem_1_data frame}
+
+## Creating the data frame. ## `runif` generates random uniformly distributed numbers
 variable_df = tibble(
   vec_random = runif(10 , min = 0, max = 5),
-## `runif` generates random uniformly distributed numbers, n is the number of observations. Min, Max are the lower and upper limits of the distribution.
   vec_logical = vec_random > 2,
   vec_char = c("A", "B", "C", "D", "E", "F", "G", "H", "I", "J"),
   vec_factor = factor(c("h", "e", "l", "l", "o", "w", "o", "r", "l", "d"))
@@ -50,5 +52,10 @@ The variable `vec_char` has class  `r class(variable_df$vec_char)` and
 the variable `vec_factor` has class  `r class(variable_df$vec_factor)`. `mean` does not work on character or factor vectors - there are no numerical values to serve as input.
 
 ```{r as.numeric function}
+## Coercing our variables into numeric.
+as.numeric(variable_df$vec_logical)
+as.numeric(variable_df$vec_char)
+as.numeric(variable_df$vec_factor)
 
+```
 ### Problem 2
