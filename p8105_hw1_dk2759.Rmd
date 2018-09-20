@@ -1,6 +1,8 @@
 ---
-title: "p8105_HW1_dk2759"
+title: "p8105_hw1_dk2759"
 output: github_document
+author: "Darwin Keung"
+date: 2018-09-19
 ---
 
 ```{r setup, include=FALSE}
@@ -26,3 +28,34 @@ plot(pressure)
 ```
 
 Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
+
+## Homework 1
+
+### Problem 1
+
+This problem focuses on variable types and coercion.
+
+The chunk(s) below creates a data frame comprised of:
+* A random sample of size 10 from a uniform[0, 5] distribution
+* A logical vector indicating whether elements of the sample are greater than 2
+* A (length-10) character vector
+* A (length-10) factor vector
+
+```{r Setup, include=FALSE}
+library(tidyverse)
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+```{r problem_1_random_sampling}
+random_df = tibble(
+  vec_random = runif(10 , min = 0, max = 5),
+  vec_logical = vec_random > 2,
+  vec_char = c("helloworld"),
+  vec_factor = factor(c("1","2","3","4","5","6","7", "8","9", "10"))
+)
+random_df
+```
+The code above contains `runif(n, min = 0, max = 1)`. `runif` generates random uniformly distributed numbers, n is the number of observations. Min, Max are the lower and upper limits of the distribution.
+
+
