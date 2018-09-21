@@ -28,7 +28,7 @@ The chunks below creates a data frame comprised of:
 
 * A (length-10) factor vector
 
-```{r problem_1_data frame}
+```{r problem_1_data frame, collapse=TRUE}
 ## Creating the data frame. ## `runif` generates random uniformly distributed numbers
 variable_df = tibble(
   vec_random = runif(10 , min = 0, max = 5),
@@ -36,9 +36,6 @@ variable_df = tibble(
   vec_char = c("A", "B", "C", "D", "E", "F", "G", "H", "I", "J"),
   vec_factor = factor(c("h", "e", "l", "l", "o", "w", "o", "r", "l", "d"))
 )
-## ?do I need to show a table?
-## variable_df
-
 ## Taking the means of each variable in dataframe
 mean(variable_df$vec_random)
 mean(variable_df$vec_logical)
@@ -122,4 +119,5 @@ ggplot(p2_df, aes(x = x, y = y)) + geom_point(aes(color = fact_sum))
 
 *Comment on color scales*
 
+The color scale of the scatterplot of x and y as well as the scatterplot using factor variables uses True and False and a more distinct color scheme. The numeric scatter plot color scale is a gradient assigning colors for intervals between 0 and 1, but we only have 0 and 1 and thus two colors shown.
 The color scale of the scatterplot of x and y as well as the scatterplot using factor variables uses True and False and a more distinct color scheme. The numeric scatter plot color scale is a gradient assigning colors for intervals between 0 and 1, but we only have 0 and 1 and thus two colors shown.
