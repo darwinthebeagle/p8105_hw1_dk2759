@@ -65,7 +65,7 @@ vec_fact_to_char = as.character(variable_df$vec_factor)
 as.numeric(vec_fact_to_char)
 ```
 Converting characters to factors assigns each character a catergorical value, which then can be converted from a factor value to a numeric value. 
-Going from factor to character removes the catergorical value (e.g. A = 1) and turns it into a character (A = "A") which no longer can be turned into a numeric value.
+Going from factor to character removes the catergorical value and turns it into a character (A = "A") which no longer can be turned into a numeric value.
 
 ### Problem 2
 
@@ -91,19 +91,14 @@ p2_df = tibble(
   num_sum = as.numeric(sum),
   fact_sum = as.factor(sum)
 )
-
-## should I name it sum or no name just use x + y > 0.
 ```
 
 * The above dataframe, "p2_df" is `r dim(p2_df)`
 
 * The mean is `r mean(p2_df$x)` and the median is `r median(p2_df$x)`
 
-_?Do I need to round or trincate? How can I do this?_
-
 * The proportion of cases for which the logical vector is `TRUE` is `r mean(p2_df$num_sum)*100`
 
-_I'm not sure if I should use the sum function here then devide by the nrow(df). `mean` works if we are taking the proportion of 0 and 1 statements._
 
 ```{r scatterplot}
 ## scatterplot of x and y
