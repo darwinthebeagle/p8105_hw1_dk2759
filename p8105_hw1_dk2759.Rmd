@@ -1,5 +1,5 @@
 ---
-title: "p8105_hw1_dk2759"
+title: "p8105_homework_1"
 output: github_document
 author: "Darwin Keung"
 date: 2018-09-19
@@ -29,7 +29,6 @@ The chunks below creates a data frame comprised of:
 * A (length-10) factor vector
 
 ```{r problem_1_data frame}
-
 ## Creating the data frame. ## `runif` generates random uniformly distributed numbers
 variable_df = tibble(
   vec_random = runif(10 , min = 0, max = 5),
@@ -37,7 +36,8 @@ variable_df = tibble(
   vec_char = c("A", "B", "C", "D", "E", "F", "G", "H", "I", "J"),
   vec_factor = factor(c("h", "e", "l", "l", "o", "w", "o", "r", "l", "d"))
 )
-variable_df
+## ?do I need to show a table?
+## variable_df
 
 ## Taking the means of each variable in dataframe
 mean(variable_df$vec_random)
@@ -49,8 +49,8 @@ The variable `vec_random` has class `r class(variable_df$vec_random)` and the va
 
 The variable `vec_char` has class  `r class(variable_df$vec_char)` and the variable `vec_factor` has class  `r class(variable_df$vec_factor)`. `mean` does not work on character or factor vectors - there are no numerical values to serve as input.
 
-```{r as.numeric function}
-## Coercing our variables into numeric. ???Not sure how to hide the output
+```{r as.numeric function, eval = FALSE}
+## Coercing our variables into numeric. 
 as.numeric(variable_df$vec_logical)
 as.numeric(variable_df$vec_char)
 as.numeric(variable_df$vec_factor)
@@ -59,8 +59,50 @@ as.numeric(variable_df$vec_factor)
 The logical and factor variable can be converted to numeric. But character variable can't be converted to numeric.
 
 ```{r as.numeric conversions}
-## convert character variable from character to factor to numeric; convert factor variable from factor to character to numeric. What happens?
+## convert character variable from character to factor to numeric; 
+vec_char_to_factor = as.factor(variable_df$vec_char)
+as.numeric(vec_char_to_factor)
 
-
+## convert factor variable from factor to character to numeric. 
+vec_fact_to_char = as.character(variable_df$vec_factor)
+as.numeric(vec_fact_to_char)
 ```
+Converting characters to factors assigns each character a catergorical value, which then can be converted from a factor value to a numeric value. 
+Going from factor to character removes the catergorical value (e.g. A = 1) and turns it into a character (A = "A") which no longer can be turned into a numeric value.
+
 ### Problem 2
+
+This problem focuses on plotting and the use of inline R code.
+
+The chunk below creates a data frame comprised of:
+
+* x: a random sample of size 1000 from a standard Normal distribution
+
+* y: a random sample of size 1000 from a standard Normal distribution
+
+* A logical vector indicating whether the x + y > 0
+
+* A numeric vector created by coercing the above logical vector
+
+* A factor vector created by coercing the above logical vector
+
+``` {r Problem_2_Dataframe}
+p2_df = tibble(
+  x = rnorm(1000),
+  y = rnorm(1000),
+  sum = x + y > 0,
+  num_sum = as.numeric(sum),
+  fact_sum = as.factor(sum)
+)
+```
+
+* The above dataframe, "p2_df" is `r dim(p2_df)`
+
+* The mean is `r mean(p2_df$x)` and the median is `r median(p2_df$x)`
+
+_?Do I need to round or trincate? How can I do this?_
+
+* The proportion of cases for which the logical vector is `TRUE` is `r mean(p2_df$num_sum)*100`
+
+_I'm not sure if I should use the sum function here then devide by the nrow(df). `mean` works if we are taking the proportion of 0 and 1 statements._
+
