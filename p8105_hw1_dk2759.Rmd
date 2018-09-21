@@ -2,7 +2,7 @@
 title: "p8105_homework_1"
 output: github_document
 author: "Darwin Keung"
-date: 2018-09-19
+date: 2018-09-21
 ---
 
 ## Homework 1
@@ -33,8 +33,8 @@ The chunks below creates a data frame comprised of:
 variable_df = tibble(
   vec_random = runif(10 , min = 0, max = 5),
   vec_logical = vec_random > 2,
-  vec_char = c("A", "B", "C", "D", "E", "F", "G", "H", "I", "J"),
-  vec_factor = factor(c("h", "e", "l", "l", "o", "w", "o", "r", "l", "d"))
+  vec_char = c("Never", "Gonna", "Give", "You", "Up", "Never", "Gonna", "Let", "You", "Down"),
+  vec_factor = factor(c("Never", "Gonna", "Make", "You", "Cry", "Never", "Gonna", "Say", "Good", "Bye"))
 )
 ## Taking the means of each variable in dataframe
 mean(variable_df$vec_random)
