@@ -94,6 +94,8 @@ p2_df = tibble(
   num_sum = as.numeric(sum),
   fact_sum = as.factor(sum)
 )
+
+## should I name it sum or no name just use x + y > 0.
 ```
 
 * The above dataframe, "p2_df" is `r dim(p2_df)`
@@ -106,3 +108,18 @@ _?Do I need to round or trincate? How can I do this?_
 
 _I'm not sure if I should use the sum function here then devide by the nrow(df). `mean` works if we are taking the proportion of 0 and 1 statements._
 
+```{r scatterplot}
+## scatterplot of x and y
+ggplot(p2_df, aes(x = x, y = y)) + geom_point(aes(color = sum))
+ggsave("hw1p2_scatterplot_xy.pdf", height = 4, width = 6)
+
+## scatterplot using numeric
+ggplot(p2_df, aes(x = x, y = y)) + geom_point(aes(color = num_sum))
+
+## scatterplot using factor variables
+ggplot(p2_df, aes(x = x, y = y)) + geom_point(aes(color = fact_sum))
+```
+
+*Comment on color scales*
+
+The color scale of the scatterplot of x and y as well as the scatterplot using factor variables uses True and False and a more distinct color scheme. The numeric scatter plot color scale is a gradient assigning colors for intervals between 0 and 1, but we only have 0 and 1 and thus two colors shown.
